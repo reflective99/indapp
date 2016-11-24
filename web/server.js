@@ -32,6 +32,9 @@ app.use(cookieParser());
 
 // Proxy to API-Backend server.
 app.use('/api', function(req, res) {
+  console.log('in proxy request');
+  console.log('req: ' + req);
+  console.log('res: ' + res);
   var token = req.cookies.token || '';
   var url = 'http://'
     + token
