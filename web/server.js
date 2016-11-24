@@ -42,7 +42,7 @@ app.use('/api', function(req, res) {
     + "https://ir-api.herokuapp.com"
     + '/api'
     + req.url;
-  debug('Proxying %s %s', req.method, url);
+  console.log('Proxying %s %s', req.method, url);
   req
     .pipe(request(url)).on('error', handleProxyError)
     .pipe(res);
