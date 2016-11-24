@@ -39,7 +39,7 @@ app.use('/api', function(req, res) {
   var url = 'http://'
     + token
     + ':@'
-    + "https://ir-api.herokuapp.com"
+    + "ir-api.herokuapp.com"
     + '/api'
     + req.url;
   console.log('Proxying %s %s', req.method, url);
