@@ -19,8 +19,6 @@ public class Main {
 
 
         new DatabaseHelper();
-        // Handle routes
-
         // HomePage
 
         get("/api/blogs", (req, res) -> {return BlogController.serveBlogs(req, res);});
