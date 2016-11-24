@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import com.asim.indapp.blog.Blog;
 import com.asim.indapp.utils.Paths;
 import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
 
 public class DatabaseHelper {
 
@@ -34,7 +35,10 @@ public class DatabaseHelper {
         String HEROKU_MLAB_URI = pb.environment().get("MONGODB_URI");
 
         if(HEROKU_MLAB_URI != null && !HEROKU_MLAB_URI.isEmpty()) {
-
+            //heroku environ
+            logger.error("Remote MLAB Database Detected");
+            mongoClient = new MongoClient(new MongoClientURI(HEROKU_MLAB_URI));
+            datastore = morphia.createDatastore(mongoClient, Paths.Database.HEROKU_DB_NAME);
         } else {
             logger.info("Local Database detected");
             mongoClient = new MongoClient(Paths.Database.HOST, Paths.Database.PORT);

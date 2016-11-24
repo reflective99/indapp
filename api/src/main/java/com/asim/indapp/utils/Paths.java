@@ -28,7 +28,8 @@ public class Paths {
     // Class that contains the Database Info
     public static class Database {
 
-        public static String LOCAL_DB_NAME = "blogs_db";
+        public static String LOCAL_DB_NAME = "db_main";
+        public static String HEROKU_DB_NAME = "db_main";
         public static String HOST = "127.0.0.1";
         public static int PORT = 27017;
 
